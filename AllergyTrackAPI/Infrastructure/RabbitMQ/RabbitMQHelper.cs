@@ -21,12 +21,12 @@ namespace Infrastructure.RabbitMQ
             return new ConnectionFactory
             {
                 HostName = _configuration[rabbitMQConfig + "host"],
-                //  UserName = _configuration[rabbitMQConfig + "username"],
+                UserName = _configuration[rabbitMQConfig + "username"],
                 Port = int.Parse(_configuration[rabbitMQConfig + "port"]),
-                //  Password = _configuration[rabbitMQConfig + "password"],
-                RequestedHeartbeat = new TimeSpan(60)
-              //  AutomaticRecoveryEnabled = true,
-             //   DispatchConsumersAsync = true,
+                Password = _configuration[rabbitMQConfig + "password"],
+                RequestedHeartbeat = new TimeSpan(60),
+                AutomaticRecoveryEnabled = true,
+                DispatchConsumersAsync = true
             };
         }
     }
